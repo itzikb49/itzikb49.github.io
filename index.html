@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itzik Bejarano - Software Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .title {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        .description {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .contact {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            min-width: 250px;
+            justify-content: center;
+        }
+        
+        .contact-item:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .icon {
+            font-size: 20px;
+        }
+        
+        .specialization {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .specialization h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .tech-item {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .contact-item {
+                min-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-img">
+            IB
+        </div>
+        
+        <h1>Itzik Bejarano</h1>
+        <div class="title">BIM Systems Coordinator & AI-Powered Developer</div>
+        
+        <div class="description">
+            With 12 years of experience at BIMTECH (Israel) in systems coordination and BIM management, I now specialize in developing advanced AI-powered applications for Revit, BIM, and NavisWorks domains.
+        </div>
+        
+        <div class="contact">
+            <a href="mailto:itzikb-bim@gmail.com" class="contact-item">
+                <span class="icon">✉️</span>
+                <span>itzikb-bim@gmail.com</span>
+            </a>
+            
+            <a href="mailto:itzikb.revit.dev@gmail.com" class="contact-item">
+                <span class="icon">📧</span>
+                <span>itzikb.revit.dev@gmail.com</span>
+            </a>
+            
+            <a href="https://linkedin.com/in/itzikbejarano" class="contact-item">
+                <span class="icon">💼</span>
+                <span>LinkedIn Profile</span>
+            </a>
+            
+            <a href="https://github.com/itzikbejarano" class="contact-item">
+                <span class="icon">📁</span>
+                <span>GitHub Projects</span>
+            </a>
+        </div>
+        
+        <div class="specialization">
+            <h3>Experience & Specializations</h3>
+            <div class="tech-list">
+                <span class="tech-item">12 Years BIM Experience</span>
+                <span class="tech-item">Revit</span>
+                <span class="tech-item">NavisWorks</span>
+                <span class="tech-item">Dynamo</span>
+                <span class="tech-item">BIM Management</span>
+                <span class="tech-item">Systems Coordination</span>
+                <span class="tech-item">AI Development</span>
+                <span class="tech-item">C#</span>
+                <span class="tech-item">.NET</span>
+                <span class="tech-item">AutoCAD</span>
+            </div>
+        </div>
+        
+        <div class="specialization" style="margin-top: 20px;">
+            <h3>Background & Vision</h3>
+            <div style="text-align: left; font-size: 0.95em; line-height: 1.6; color: #555;">
+                Transitioning from 12 years at BIMTECH (Israel) as Systems Coordinator and BIM Manager to independent AI-powered development. My goal is to solve real-world challenges I encountered in the field and streamline BIM and Revit workflows through intelligent automation.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
