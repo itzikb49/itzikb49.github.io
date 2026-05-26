@@ -1,203 +1,741 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Itzik Bejarano - Software Developer</title>
+    <title>IB-BIM | Revit Add-ins for BIM Professionals</title>
+    <meta name="description" content="IB-BIM develops productivity add-ins for Autodesk Revit. Visibility Manager, Type Manager Pro, ScheduleLink — tools built by a BIM Manager, for BIM professionals.">
+    <meta name="keywords" content="Revit add-in, BIM, Visibility Manager, Type Manager Pro, ScheduleLink, Autodesk App Store, IB-BIM, Revit plugin">
+    <meta name="author" content="Itzik Bejarano — IB-BIM">
+    <meta property="og:title" content="IB-BIM | Revit Add-ins for BIM Professionals">
+    <meta property="og:description" content="Productivity tools for Autodesk Revit — built from 14+ years of field experience in MEP coordination and BIM management.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://itzikb49.github.io">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-        
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: white;
-            font-weight: bold;
-        }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
-        
-        .title {
-            color: #666;
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-        
-        .description {
-            color: #555;
-            margin-bottom: 30px;
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-        
-        .contact {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            background: #f8f9fa;
-            border-radius: 25px;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.3s ease;
-            min-width: 250px;
-            justify-content: center;
-        }
-        
-        .contact-item:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-        
-        .icon {
-            font-size: 20px;
-        }
-        
-        .specialization {
-            margin-top: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 15px;
-        }
-        
-        .specialization h3 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-        
-        .tech-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-        
-        .tech-item {
-            background: #667eea;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
+        :root {
+            --ink: #1a1a2e;
+            --paper: #f8f7f4;
+            --accent: #0066ff;
+            --accent-glow: #4d94ff;
+            --accent-dark: #0044aa;
+            --slate: #5a5a72;
+            --mist: #e8e6e1;
+            --card-bg: #ffffff;
+            --success: #16a34a;
+            --warm: #ff6b35;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                margin: 10px;
-                padding: 20px;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background: linear-gradient(160deg, #0a0a1a 0%, #1a1a3e 40%, #0d2847 100%);
+            color: #fff;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(0,102,255,0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(77,148,255,0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            animation: fadeDown 0.8s ease-out;
+        }
+
+        .brand-logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 30px rgba(0,102,255,0.25));
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            animation: fadeDown 0.8s ease-out 0.15s both;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent-glow);
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: #b0b8c8;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            animation: fadeDown 0.8s ease-out 0.3s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeDown 0.8s ease-out 0.45s both;
+        }
+
+        .hero-credit {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #6a7290;
+            font-style: italic;
+            animation: fadeDown 0.8s ease-out 0.6s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(0,102,255,0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(0,102,255,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-glow);
+            color: var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            opacity: 0.5;
+        }
+
+        .scroll-hint svg {
+            width: 24px;
+            height: 24px;
+            stroke: #fff;
+        }
+
+        /* ─── SECTIONS ─── */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            color: var(--slate);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* ─── APPS GRID ─── */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--mist);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border-color: var(--accent);
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .app-card.published::before { background: var(--accent); }
+        .app-card.review::before { background: var(--warm); }
+        .app-card.development::before { background: var(--slate); }
+
+        .app-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 0.3rem 0.75rem;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+        }
+
+        .status-live {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-review {
+            background: #fff3e0;
+            color: #b45309;
+        }
+
+        .status-dev {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .app-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-card p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.55;
+        }
+
+        .app-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .app-tag {
+            font-size: 0.72rem;
+            padding: 0.2rem 0.6rem;
+            background: #f0f0f5;
+            border-radius: 4px;
+            color: var(--slate);
+            font-weight: 500;
+        }
+
+        .app-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .app-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.2s;
+        }
+
+        .app-link:hover { color: var(--accent-dark); }
+
+        .app-link svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* ─── ABOUT ─── */
+        .about-section {
+            background: linear-gradient(160deg, #0a0a1a 0%, #1a1a3e 100%);
+            color: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-section .section-label { color: var(--accent-glow); }
+        .about-section .section-desc { color: #b0b8c8; }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-glow);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #8890a4;
+            margin-top: 0.25rem;
+        }
+
+        .expertise-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .expertise-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .expertise-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0,102,255,0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        .expertise-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .expertise-item p {
+            font-size: 0.85rem;
+            color: #8890a4;
+            line-height: 1.5;
+        }
+
+        /* ─── CONTACT ─── */
+        .contact-section { background: var(--paper); }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--mist);
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+            border-color: var(--accent);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: #f0f4ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-card p {
+            font-size: 0.82rem;
+            color: var(--slate);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: #0a0a1a;
+            color: #5a5a72;
+            font-size: 0.82rem;
+        }
+
+        footer a {
+            color: var(--accent-glow);
+            text-decoration: none;
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            
-            h1 {
-                font-size: 2em;
+
+            .stats-row {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
             }
-            
-            .contact-item {
-                min-width: 200px;
+
+            .apps-grid {
+                grid-template-columns: 1fr;
             }
+
+            section { padding: 4rem 1.5rem; }
         }
     </style>
 </head>
 <body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="brand-mark">
+            <img src="IB-BIM_200X200.png" alt="IB-BIM Logo" class="brand-logo-img">
+        </div>
+        <h1>Revit Add-ins Built from<br><span class="highlight">Real-World BIM Experience</span></h1>
+        <p class="hero-sub">Productivity tools for BIM Managers, MEP Coordinators, and Revit power users — designed to solve the problems I faced every day in the field.</p>
+        <div class="hero-cta">
+            <a href="#apps" class="btn btn-primary">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 17l6-6-6-6M12 19h8"/></svg>
+                View Apps
+            </a>
+            <a href="https://youtu.be/68-bxWQfsUg" target="_blank" class="btn btn-outline">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                Watch Demo
+            </a>
+        </div>
+        <p class="hero-credit">by Itzik Bejarano</p>
+    </div>
+    <div class="scroll-hint">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </div>
+</section>
+
+<!-- ═══ APPS ═══ -->
+<section id="apps">
     <div class="container">
-        <div class="profile-img">
-            IB
-        </div>
-        
-        <h1>Itzik Bejarano</h1>
-        <div class="title">BIM Systems Coordinator & AI-Powered Developer</div>
-        
-        <div class="description">
-            With 12 years of experience at BIMTECH (Israel) in systems coordination and BIM management, I now specialize in developing advanced AI-powered applications for Revit, BIM, and NavisWorks domains.
-        </div>
-        
-        <div class="contact">
-            <a href="mailto:itzikb-bim@gmail.com" class="contact-item">
-                <span class="icon">✉️</span>
-                <span>itzikb-bim@gmail.com</span>
-            </a>
-            
-            <a href="mailto:itzikb.revit.dev@gmail.com" class="contact-item">
-                <span class="icon">📧</span>
-                <span>itzikb.revit.dev@gmail.com</span>
-            </a>
-            
-            <a href="https://linkedin.com/in/itzikbejarano" class="contact-item">
-                <span class="icon">💼</span>
-                <span>LinkedIn Profile</span>
-            </a>
-            
-            <a href="https://github.com/itzikbejarano" class="contact-item">
-                <span class="icon">📁</span>
-                <span>GitHub Projects</span>
-            </a>
-        </div>
-        
-        <div class="specialization">
-            <h3>Experience & Specializations</h3>
-            <div class="tech-list">
-                <span class="tech-item">12 Years BIM Experience</span>
-                <span class="tech-item">Revit</span>
-                <span class="tech-item">NavisWorks</span>
-                <span class="tech-item">Dynamo</span>
-                <span class="tech-item">BIM Management</span>
-                <span class="tech-item">Systems Coordination</span>
-                <span class="tech-item">AI Development</span>
-                <span class="tech-item">C#</span>
-                <span class="tech-item">.NET</span>
-                <span class="tech-item">AutoCAD</span>
+        <div class="section-label fade-in">Applications</div>
+        <h2 class="section-title fade-in">Tools That Solve Real Problems</h2>
+        <p class="section-desc fade-in">Each add-in was born from a specific pain point I encountered during 14 years of MEP coordination and BIM management.</p>
+
+        <div class="apps-grid">
+
+            <!-- Visibility Manager -->
+            <div class="app-card published fade-in">
+                <div class="app-status status-live">● Live on App Store</div>
+                <h3>Visibility Manager</h3>
+                <p>Copy, remove, export and import View Filters and V/G Overrides across views and templates. Batch operations with full Excel roundtrip support.</p>
+                <div class="app-tags">
+                    <span class="app-tag">V/G Overrides</span>
+                    <span class="app-tag">View Filters</span>
+                    <span class="app-tag">Excel Export/Import</span>
+                    <span class="app-tag">Templates</span>
+                    <span class="app-tag">Revit 2023–2026</span>
+                </div>
+                <div class="app-links">
+                    <a href="https://apps.autodesk.com/RVT/en/List/Search?query=visibility+manager+ib-bim" target="_blank" class="app-link">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        App Store
+                    </a>
+                    <a href="https://youtu.be/68-bxWQfsUg" target="_blank" class="app-link">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        Tutorial
+                    </a>
+                </div>
             </div>
+
+            <!-- Type Manager Pro -->
+            <div class="app-card review fade-in">
+                <div class="app-status status-review">◐ In Review</div>
+                <h3>Type Manager Pro</h3>
+                <p>Manage, rename, and purge Revit types across your project. Batch rename with preview, export type lists to Excel, and clean up unused types efficiently.</p>
+                <div class="app-tags">
+                    <span class="app-tag">Type Management</span>
+                    <span class="app-tag">Batch Rename</span>
+                    <span class="app-tag">Purge Unused</span>
+                    <span class="app-tag">Excel Export</span>
+                    <span class="app-tag">Revit 2023–2026</span>
+                </div>
+                <div class="app-links">
+                    <span class="app-link" style="color: var(--slate); cursor: default;">Coming Soon to App Store</span>
+                </div>
+            </div>
+
+            <!-- ScheduleLink -->
+            <div class="app-card review fade-in">
+                <div class="app-status status-review">◐ In Review</div>
+                <h3>ScheduleLink</h3>
+                <p>Two-way sync between Revit schedules and Excel. Edit schedule data in Excel and import changes back with smart matching and conflict detection.</p>
+                <div class="app-tags">
+                    <span class="app-tag">Schedules</span>
+                    <span class="app-tag">Excel Sync</span>
+                    <span class="app-tag">Two-Way</span>
+                    <span class="app-tag">Smart Matching</span>
+                    <span class="app-tag">Free</span>
+                </div>
+                <div class="app-links">
+                    <a href="https://youtu.be/RllwtwhUp7k" target="_blank" class="app-link">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        Demo Video
+                    </a>
+                </div>
+            </div>
+
+            <!-- Get Linked IDs -->
+            <div class="app-card published fade-in">
+                <div class="app-status status-live">● Live on App Store</div>
+                <h3>Get Linked IDs</h3>
+                <p>Quickly identify and retrieve Element IDs from linked Revit models. Essential for coordination workflows and clash resolution.</p>
+                <div class="app-tags">
+                    <span class="app-tag">Linked Models</span>
+                    <span class="app-tag">Element IDs</span>
+                    <span class="app-tag">Coordination</span>
+                    <span class="app-tag">Free</span>
+                </div>
+                <div class="app-links">
+                    <a href="https://apps.autodesk.com/RVT/en/List/Search?query=get+linked+ids" target="_blank" class="app-link">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        App Store
+                    </a>
+                </div>
+            </div>
+
         </div>
-        
-        <div class="specialization" style="margin-top: 20px;">
-            <h3>Background & Vision</h3>
-            <div style="text-align: left; font-size: 0.95em; line-height: 1.6; color: #555;">
-                Transitioning from 12 years at BIMTECH (Israel) as Systems Coordinator and BIM Manager to independent AI-powered development. My goal is to solve real-world challenges I encountered in the field and streamline BIM and Revit workflows through intelligent automation.
+    </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-grid">
+            <div>
+                <div class="section-label fade-in">About</div>
+                <h2 class="section-title fade-in" style="color: #fff;">Built by a BIM Manager,<br>for BIM Professionals</h2>
+                <p class="section-desc fade-in">After 14 years as an MEP Systems Coordinator and BIM Manager at BIMTECH Israel, I transitioned to independent development. Every tool I build addresses a real workflow bottleneck I personally experienced — not theoretical problems, but daily frustrations that cost teams hours.</p>
+
+                <div class="stats-row fade-in">
+                    <div class="stat">
+                        <div class="stat-number">14+</div>
+                        <div class="stat-label">Years BIM Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Revit Add-ins</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">300+</div>
+                        <div class="stat-label">Downloads</div>
+                    </div>
+                </div>
+            </div>
+            <div class="expertise-list fade-in">
+                <div class="expertise-item">
+                    <div class="expertise-icon">⚡</div>
+                    <div>
+                        <h4>MEP Coordination</h4>
+                        <p>Specialized in mechanical, electrical, and plumbing systems coordination across large-scale projects.</p>
+                    </div>
+                </div>
+                <div class="expertise-item">
+                    <div class="expertise-icon">📐</div>
+                    <div>
+                        <h4>BIM Management</h4>
+                        <p>Project standards, templates, view management, and multi-discipline coordination workflows.</p>
+                    </div>
+                </div>
+                <div class="expertise-item">
+                    <div class="expertise-icon">🔧</div>
+                    <div>
+                        <h4>Revit API & C#</h4>
+                        <p>Native Revit add-in development with WPF interfaces, published on the Autodesk App Store.</p>
+                    </div>
+                </div>
+                <div class="expertise-item">
+                    <div class="expertise-icon">📊</div>
+                    <div>
+                        <h4>Excel Integration</h4>
+                        <p>Seamless data roundtrip between Revit and Excel for filters, overrides, schedules, and types.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="section-label fade-in">Connect</div>
+        <h2 class="section-title fade-in">Get in Touch</h2>
+        <p class="section-desc fade-in">Questions, feedback, or partnership inquiries — I'd love to hear from you.</p>
+
+        <div class="contact-grid">
+            <a href="mailto:itzikb-bim@gmail.com" class="contact-card fade-in">
+                <div class="contact-icon">✉️</div>
+                <h4>Email</h4>
+                <p>itzikb-bim@gmail.com</p>
+            </a>
+            <a href="https://linkedin.com/in/itzikbejarano" target="_blank" class="contact-card fade-in">
+                <div class="contact-icon">💼</div>
+                <h4>LinkedIn</h4>
+                <p>Itzik Bejarano</p>
+            </a>
+            <a href="https://github.com/itzikb49" target="_blank" class="contact-card fade-in">
+                <div class="contact-icon">📁</div>
+                <h4>GitHub</h4>
+                <p>itzikb49</p>
+            </a>
+            <a href="https://www.youtube.com/@IB-BIM" target="_blank" class="contact-card fade-in">
+                <div class="contact-icon">▶️</div>
+                <h4>YouTube</h4>
+                <p>IB-BIM Channel</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <p>&copy; 2026 IB-BIM — Itzik Bejarano &nbsp;·&nbsp; <a href="https://itzikb49.github.io/ib-bim-privacy">Privacy Policy</a></p>
+</footer>
+
+<!-- ═══ SCROLL ANIMATION ═══ -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
